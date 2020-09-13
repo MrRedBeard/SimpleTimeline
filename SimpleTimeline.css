@@ -1,0 +1,155 @@
+simpleTimeline
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+simpleTimeline .timeline
+{
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 30px 0 10px 0;
+	position: relative;
+	max-height: 430px;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+
+simpleTimeline .timeline::-webkit-scrollbar 
+{
+	display: none;
+}
+
+simpleTimeline .topBar
+{
+	height: 3px;
+	height: 10px;
+	background: #eee;
+	background-color: red;
+	width: 100%;
+	position: relative;
+	top: 15px;
+	left: 0;
+}
+
+simpleTimeline .bottomBar
+{
+	height: 3px;
+	height: 10px;
+	background: #eee;
+	background-color: red;
+	width: 100%;
+	position: relative;
+	top: 15px;
+	left: 0;
+	display: none;
+}
+
+simpleTimeline .year
+{
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+	font-size: 12px;
+	text-align: center;
+	position: relative;
+	border: 1px solid #d1d1d1;
+	border-top: 4px solid #06182E;
+	border-radius: 3px;
+	overflow-y: auto;
+	min-width: 200px;
+	max-width: 500px;
+	max-height: 400px;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+
+simpleTimeline .year::-webkit-scrollbar 
+{
+	display: none;
+}
+
+simpleTimeline .year:after
+{
+	content: '';
+	display: block;
+	background: #fff;
+	width: 7px;
+	height: 7px;
+	border-radius: 6px;
+	border: 3px solid #06182E;
+	position: absolute;
+	left: 50%;
+	top: -30px;
+	margin-left: -6px;
+}
+
+simpleTimeline .year:before
+{
+	content: '';
+	display: block;
+	background: #06182E;
+	width: 5px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	top: -20px;
+	margin-left: -2px;
+}
+
+simpleTimeline .year .yearTitle
+{
+	/*color: #fff;*/
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+simpleTimeline .year .entry
+{
+	display: block;
+	vertical-align: top;
+	font-size: 12px;
+	text-align: center;
+	position: relative;
+	border: 1px solid #d1d1d1;
+	border-radius: 3px;
+	max-width: 100%;
+	width: 100%;
+	margin-bottom: 10px;
+	white-space: normal;
+}
+
+simpleTimeline .year .entry h1
+{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	max-width: 100%;
+}
+
+simpleTimeline .year .entry h2
+{
+	letter-spacing: .2em;
+	margin-bottom: 10px;
+	font-size: 14px;
+	max-width: 100%;
+}
+
+simpleTimeline .year .entry .content
+{
+	letter-spacing: .2em;
+	margin-bottom: 10px;
+	font-size: 14px;
+	max-width: 100%;
+	padding: 5px;
+}
+
+simpleTimeline .year .entry img
+{
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}

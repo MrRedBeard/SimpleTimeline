@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SimpleTimeline</title>
+<link rel="stylesheet" href="SimpleTimeline.css">
+<script src="./SimpleTimeline.js"></script>
+</head>
+<body>
+
+<simpleTimeline class="timeline"></simpleTimeline>
+
+<script>
+	let timelineOptions = 
+	{
+		containerEl: document.querySelector('.timeline'),
+		data: [
+		   {
+			  "year":2016,
+			  "month":7,
+			  "day":null,
+			  "order":0,
+			  "title":"Bob dies",
+			  "content":"Book 1 Chapter 1"
+		   },
+		   {
+			  "year":2036,
+			  "month":null,
+			  "day":null,
+			  "order":1,
+			  "title":"US elects fundamentalist president",
+			  "content":"Book 1 Chapter 2"
+		   },
+		   {
+			  "year":2040,
+			  "month":null,
+			  "day":null,
+			  "order":2,
+			  "title":"US elects atheist president",
+			  "content":"Book 1 Chapter 2"
+		   },
+		   {
+			  "year":2041,
+			  "month":null,
+			  "day":null,
+			  "order":3,
+			  "title":"Fundamentalists stage successful coup",
+			  "content":"Book 1 Chapter 2"
+		   },
+		   {
+			  "year":2133,
+			  "month":6,
+			  "day":24,
+			  "order":4,
+			  "title":"Bob brought online as a replicant",
+			  "content":"Book 1 Chapter 2"
+		   },
+		   {
+			  "year":2133,
+			  "month":8,
+			  "day":4,
+			  "order":5,
+			  "title":"Attack on facility",
+			  "content":"Book 1 Chapter 8"
+		   },
+		   {
+			  "year":2133,
+			  "month":8,
+			  "day":17,
+			  "order":6,
+			  "title":"Bob launches",
+			  "content":"Book 1 Chapter 12"
+		   },
+		   {
+			  "year":2144,
+			  "month":8,
+			  "day":null,
+			  "order":7,
+			  "title":"Bob arrives in Epsilon Eridani",
+			  "content":"Book 1 Chapter 14"
+		   },
+		   {
+			  "year":2144,
+			  "month":9,
+			  "day":null,
+			  "order":8,
+			  "title":"Bob meets&#39; engages&#39; and defeats Brazilian replicant&#39; Medeiros&#39; for the first time",
+			  "content":"Book 1 Chapter 15"
+		   },
+		   {
+			  "year":2144,
+			  "month":9,
+			  "day":null,
+			  "order":9,
+			  "title":"Bob begins making clones",
+			  "content":"Book 1 Chapter 16"
+		   },
+		   {
+			  "year":2145,
+			  "month":7,
+			  "day":null,
+			  "order":10,
+			  "title":"Bill&#39; Riker&#39; Milo&#39; and Mario come online. Bob moves to Heaven 1A ship (v2)",
+			  "content":"Book 1 Chapter 17"
+		   },
+		   {
+			  "year":2145,
+			  "month":9,
+			  "day":null,
+			  "order":11,
+			  "title":"Bob leaves for Delta Eridan&#39; Milo for Omicron2 Eridani&#39; and Mario for Beta Hydri. Bill and Riker work on clones of themselves",
+			  "content":"Book 1 Chapter 18"
+		   },
+		   {
+			  "year":2145,
+			  "month":12,
+			  "day":null,
+			  "order":12,
+			  "title":"Homer (Riker clone) and Garfield (Bill clone) come online&#39; Riker and Homer leave for Sol",
+			  "content":"Book 1 Chapter 20"
+		   },
+		   {
+			  "year":2150,
+			  "month":9,
+			  "day":null,
+			  "order":13,
+			  "title":"Bill and Garfield create Calvin&#39; Goku&#39; and Linus&#39; who then leave Epsilon Eridani in v3 ships",
+			  "content":"Book 1 Chapter 22"
+		   },
+		   {
+			  "year":2151,
+			  "month":9,
+			  "day":null,
+			  "order":14,
+			  "title":"Bill and Garfield perform successful test of SCUT&#39; Garfield uses VR over SCUT surprising Bill",
+			  "content":"Book 1 Chapter 25"
+		   },
+		   {
+			  "year":2152,
+			  "month":7,
+			  "day":null,
+			  "order":15,
+			  "title":"Milo arrives at Omicron2 Eridani A system&#39; discovers Vulcan and Romulus",
+			  "content":"Book 1 Chapter 19"
+		   },
+		   {
+			  "year":2153,
+			  "month":2,
+			  "day":null,
+			  "order":16,
+			  "title":"Milo leaves Omicron2 Eridani (Romulous & Vulcan) for 82 Eridani",
+			  "content":"Book 1 Chapter 23"
+		   },
+		   {
+			  "year":2157,
+			  "month":1,
+			  "day":null,
+			  "order":17,
+			  "title":"Riker and Homer arrive at Sol",
+			  "content":"Book 1 Chapter 21"
+		   },
+		   {
+			  "year":2157,
+			  "month":4,
+			  "day":null,
+			  "order":18,
+			  "title":"Riker and Homer take out remaining Brazilian forces in Sol",
+			  "content":"Book 1 Chapter 24"
+		   },
+		   {
+			  "year":2157,
+			  "month":4,
+			  "day":null,
+			  "order":19,
+			  "title":"Bill receivs transmission from Col. Butterworth of USE&#39; receive colony ship plans and status of Earth & history of war",
+			  "content":"Book 1 Chapter 26"
+		   },
+		   {
+			  "year":2157,
+			  "month":9,
+			  "day":null,
+			  "order":20,
+			  "title":"Riker and Homer work on preparing to build colony ships",
+			  "content":"Book 1 Chapter 29"
+		   },
+		   {
+			  "year":2158,
+			  "month":1,
+			  "day":null,
+			  "order":21,
+			  "title":"Arthur and Charles (Riker clones) are online&#39; Earth population estimated at 15 million",
+			  "content":"Book 1 Chapter 31"
+		   },
+		   {
+			  "year":2158,
+			  "month":10,
+			  "day":null,
+			  "order":22,
+			  "title":"Milo's report on Vulcan and Romulous reaches Bill",
+			  "content":"Book 1 Chapter 32"
+		   },
+		   {
+			  "year":2158,
+			  "month":3,
+			  "day":null,
+			  "order":23,
+			  "title":"Riker hosts first UN sessions",
+			  "content":"Book 1 Chapter 33"
+		   },
+		   {
+			  "year":2158,
+			  "month":9,
+			  "day":null,
+			  "order":24,
+			  "title":"FAITH discovers they have no control over Riker&#39; Butterworth concedes 4 months of first two ships' schedule to shorten 3rd ship schedule by 1 year",
+			  "content":"Book 1 Chapter 36"
+		   },
+		   {
+			  "year":2158,
+			  "month":11,
+			  "day":null,
+			  "order":25,
+			  "title":"VEHEMENT introduced&#39; Bill meets Julia (relative&#39; descendant of sister)",
+			  "content":"Book 1 Chapter 38"
+		   },
+		   {
+			  "year":2162,
+			  "month":5,
+			  "day":null,
+			  "order":26,
+			  "title":"Riker (and all Sol) receive SCUT plans&#39; join Bobnet&#39; learn about Romulous and Vulcan&#39; share the news with Earth",
+			  "content":"Book 1 Chapter 41"
+		   },
+		   {
+			  "year":2162,
+			  "month":4,
+			  "day":null,
+			  "order":27,
+			  "title":"Garfield talks to Bill about their working relationship&#39; they begin fine-tuning VR physics (INCONSISTENCY NOTE: this chapter opens with a mention about the update from Riker & Homer&#39; which is dated May in the previous chapter)",
+			  "content":"Book 1 Chapter 42"
+		   },
+		   {
+			  "year":2163,
+			  "month":11,
+			  "day":null,
+			  "order":28,
+			  "title":"Calvin arrives at Alpha Centauri B&#39; discover remains of USE vessel; Goku arrives at Alpha Centauri A&#39; discovers Brazilian autofactory in full operation&#39; Calvin and Goku proceed to destroy it with one probe escaping",
+			  "content":"Book 1 Chapter 28"
+		   },
+		   {
+			  "year":2164,
+			  "month":9,
+			  "day":null,
+			  "order":29,
+			  "title":"Colony ships halfway done&#39; Sol Bob's discuss plans",
+			  "content":"Book 1 Chapter 43"
+		   },
+		   {
+			  "year":2165,
+			  "month":4,
+			  "day":null,
+			  "order":30,
+			  "title":"Bob discovers intelligent life at Delta Eridani (Deltans) and begins cataloging them",
+			  "content":"Book 1 Chapter 27"
+		   },
+		   {
+			  "year":2165,
+			  "month":4,
+			  "day":null,
+			  "order":31,
+			  "title":"Bob clones Marvin&#39; Luke&#39; and Bender",
+			  "content":"Book 1 Chapter 30"
+		   },
+		   {
+			  "year":2165,
+			  "month":7,
+			  "day":null,
+			  "order":32,
+			  "title":"Bob witnesses gorilloid attack on Deltans&#39; delivers flint to Archimedes",
+			  "content":"Book 1 Chapter 35"
+		   },
+		   {
+			  "year":2165,
+			  "month":8,
+			  "day":null,
+			  "order":33,
+			  "title":"Deltan Arnold uses axe as weapon for first time in large gorilloid attack",
+			  "content":"Book 1 Chapter 37"
+		   },
+		   {
+			  "year":2165,
+			  "month":10,
+			  "day":null,
+			  "order":34,
+			  "title":"Luke leaves Delta Eridani for Kappa Ceti&#39; Bender for Gamma Leporis A",
+			  "content":"Book 1 Chapter 39"
+		   },
+		   {
+			  "year":2165,
+			  "month":4,
+			  "day":null,
+			  "order":35,
+			  "title":"Linus arrives at Epsilon Indi&#39; finds Australian probe Henry Roberts&#39; brings him into VR",
+			  "content":"Book 1 Chapter 40"
+		   },
+		   {
+			  "year":2165,
+			  "month":1,
+			  "day":null,
+			  "order":36,
+			  "title":"Bart (Calvin clone) contacts Bill and joins Bobnet&#39; updates Bill on situation at Alpha Centauri",
+			  "content":"Book 1 Chapter 45"
+		   },
+		   {
+			  "year":2165,
+			  "month":8,
+			  "day":null,
+			  "order":37,
+			  "title":"Milo arrives at 82 Eridani and is destroyed&#39; likely by Brazilians",
+			  "content":"Book 1 Chapter 46"
+		   },
+		   {
+			  "year":2166,
+			  "month":1,
+			  "day":null,
+			  "order":38,
+			  "title":"Bob makes first contact with Archimedes&#39; begins discussions to move Deltan camp to flint site",
+			  "content":"Book 1 Chapter 44"
+		   },
+		   {
+			  "year":2166,
+			  "month":1,
+			  "day":null,
+			  "order":39,
+			  "title":"Arthur destroyed by booby trap near Saturn",
+			  "content":"Book 1 Chapter 47"
+		   },
+		   {
+			  "year":2166,
+			  "month":5,
+			  "day":null,
+			  "order":40,
+			  "title":"Deltan migration begins",
+			  "content":"Book 1 Chapter 48"
+		   },
+		   {
+			  "year":2166,
+			  "month":5,
+			  "day":null,
+			  "order":41,
+			  "title":"Riker intercepts attempted hack from New Zealand&#39; discovers Heaven plans were stolen from Australians; Homer reveals plans for farming space stations (donuts)&#39; FAITH agrees to give up some reserve food for space on 3rd ship",
+			  "content":"Book 1 Chapter 49"
+		   },
+		   {
+			  "year":2166,
+			  "month":6,
+			  "day":null,
+			  "order":42,
+			  "title":"Gorilloids attack Deltan migration party",
+			  "content":"Book 1 Chapter 50"
+		   },
+		   {
+			  "year":2166,
+			  "month":6,
+			  "day":null,
+			  "order":43,
+			  "title":"Deltans attacked by leopard-analogue&#39; Diana introduced",
+			  "content":"Book 1 Chapter 53"
+		   },
+		   {
+			  "year":2166,
+			  "month":7,
+			  "day":null,
+			  "order":44,
+			  "title":"Deltans arrive at flint site (former home)",
+			  "content":"Book 1 Chapter 55"
+		   },
+		   {
+			  "year":2167,
+			  "month":3,
+			  "day":null,
+			  "order":45,
+			  "title":"Bill & Garfield’s first comet arrives at Ragnarok&#39; plans begin for non-anchored asteroid movers&#39; Bill works on Bullwinkle",
+			  "content":"Book 1 Chapter 56"
+		   },
+		   {
+			  "year":2168,
+			  "month":1,
+			  "day":null,
+			  "order":46,
+			  "title":"Homer reveals plans for ranching space station (donut)",
+			  "content":"Book 1 Chapter 52"
+		   },
+		   {
+			  "year":2169,
+			  "month":8,
+			  "day":null,
+			  "order":47,
+			  "title":"Mario arrives in Beta Hydri&#39; discovers full metal and life cleanout and crashed alien ship (first evidence of Others)",
+			  "content":"Book 1 Chapter 57"
+		   },
+		   {
+			  "year":2170,
+			  "month":10,
+			  "day":null,
+			  "order":48,
+			  "title":"First 2 colony ships&#39; Exodus-1 and 2&#39; complete",
+			  "content":"Book 1 Chapter 54"
+		   },
+		   {
+			  "year":2171,
+			  "month":4,
+			  "day":null,
+			  "order":49,
+			  "title":"First 2 colony ships loaded and depart for Vulcan&#39; with Howard (Charles clone) as overseer",
+			  "content":"Book 1 Chapter 58"
+		   },
+		   {
+			  "year":2172,
+			  "month":5,
+			  "day":null,
+			  "order":50,
+			  "title":"Bill hosts first Bobmoot",
+			  "content":"Book 1 Chapter 59"
+		   },
+		   {
+			  "year":2174,
+			  "month":1,
+			  "day":null,
+			  "order":51,
+			  "title":"Bill receives Milo’s last transmissions concerning 82 Eridani",
+			  "content":"Book 1 Chapter 51"
+		   },
+		   {
+			  "year":2185,
+			  "month":4,
+			  "day":null,
+			  "order":52,
+			  "title":"Khan and 7 other Bobs arrive at 82 Eridani and are attacked&#39; first use of plasma spikes&#39; 7 Bobs are destroyed",
+			  "content":"Book 1 Chapter 60"
+		   },
+		   {
+			  "year":2188,
+			  "month":9,
+			  "day":null,
+			  "order":53,
+			  "title":"Colonization of Vulcan begins with Howard overseeing",
+			  "content":"Book 1 Chapter 61"
+		   },
+		   {
+			  "year":2167,
+			  "month":2,
+			  "day":null,
+			  "order":54,
+			  "title":"Start of second book&#39; Marvin determines origin area of Deltans",
+			  "content":"Book 2 Chapter 1"
+		   },
+		   {
+			  "year":2167,
+			  "month":3,
+			  "day":null,
+			  "order":55,
+			  "title":"Archimedes learns that Bob builds other Bobs",
+			  "content":"Book 2 Chapter 3"
+		   },
+		   {
+			  "year":2169,
+			  "month":9,
+			  "day":null,
+			  "order":56,
+			  "title":"Marvin discovers that something hunted Deltans to near extinction at their original (source) site",
+			  "content":"Book 2 Chapter 9"
+		   },
+		   {
+			  "year":2169,
+			  "month":11,
+			  "day":null,
+			  "order":57,
+			  "title":"Bob teaches Archimedes jujitsu during mating season. Archimedes hooks up with Diana. Marvin discovers preyed Deltan remains near Camelot.",
+			  "content":"Book 2 Chapter 11"
+		   },
+		   {
+			  "year":2170,
+			  "month":10,
+			  "day":null,
+			  "order":58,
+			  "title":"Mulder discovers Poseidon in Eta Cassiopeiae&#39; brings Skinner and Johnny online months later",
+			  "content":"Book 2 Chapter 4"
+		   },
+		   {
+			  "year":2170,
+			  "month":12,
+			  "day":null,
+			  "order":59,
+			  "title":"Riker deals with Maldeves' livestock sabotage at Sol; Homer admits he's been underreporting production to establish a surplus",
+			  "content":"Book 2 Chapter 14"
+		   },
+		   {
+			  "year":2171,
+			  "month":4,
+			  "day":null,
+			  "order":60,
+			  "title":"SCUT (Subspace Communications Universal Transceiver) plans reach Mulder at Eta Cassiopeiae&#39; Mulder joins BobNet",
+			  "content":"Book 2 Chapter 6"
+		   },
+		   {
+			  "year":2171,
+			  "month":7,
+			  "day":null,
+			  "order":61,
+			  "title":"VEHEMENT introduced (Earth)",
+			  "content":"Book 2 Chapter 7"
+		   },
+		   {
+			  "year":2171,
+			  "month":5,
+			  "day":null,
+			  "order":62,
+			  "title":"Bob receives SCUT plans and connects to Bobiverse",
+			  "content":"Book 2 Chapter 12"
+		   },
+		   {
+			  "year":2171,
+			  "month":5,
+			  "day":null,
+			  "order":63,
+			  "title":"Marvin & Bob lose a drone to flying predator (first contact with Deltans' original predator)",
+			  "content":"Book 2 Chapter 17"
+		   },
+		   {
+			  "year":2172,
+			  "month":9,
+			  "day":null,
+			  "order":64,
+			  "title":"Riker deals with another VEHEMENT attack",
+			  "content":"Book 2 Chapter 18"
+		   },
+		   {
+			  "year":2172,
+			  "month":6,
+			  "day":null,
+			  "order":65,
+			  "title":"Bob & Marvin see and engage flying Deltan predator&#39; hippogriffs&#39; after first attack on Deltans&#39; destroy hippogriffs' island with ship buster. Bob kicked out of Delta",
+			  "content":"Book 2 Chapter 19"
+		   },
+		   {
+			  "year":2173,
+			  "month":12,
+			  "day":null,
+			  "order":66,
+			  "title":"Bob visits Archimedes&#39; Marvin leaves Delta",
+			  "content":"Book 2 Chapter 22"
+		   },
+		   {
+			  "year":2174,
+			  "month":12,
+			  "day":null,
+			  "order":67,
+			  "title":"Riker and Charles investigate more VEHEMENT attacks",
+			  "content":"Book 2 Chapter 21"
+		   },
+		   {
+			  "year":2174,
+			  "month":9,
+			  "day":null,
+			  "order":68,
+			  "title":"VEHEMENT blows up donut at Earth",
+			  "content":"Book 2 Chapter 23"
+		   },
+		   {
+			  "year":2174,
+			  "month":3,
+			  "day":null,
+			  "order":69,
+			  "title":"Bob clones&#39; Pete and Victor&#39; are online and preparing to leave Delan system",
+			  "content":"Book 2 Chapter 24"
+		   },
+		   {
+			  "year":2175,
+			  "month":12,
+			  "day":null,
+			  "order":70,
+			  "title":"Communication to Homer detected",
+			  "content":"Book 2 Chapter 26"
+		   },
+		   {
+			  "year":2175,
+			  "month":12,
+			  "day":null,
+			  "order":71,
+			  "title":"Homer discovered infected by VEHEMENT and cleaned. VEHEMENT tech HQ discovered",
+			  "content":"Book 2 Chapter 28"
+		   },
+		   {
+			  "year":2176,
+			  "month":11,
+			  "day":null,
+			  "order":72,
+			  "title":"Mario discovers Others' clean out of Zeta Tucani",
+			  "content":"Book 2 Chapter 10"
+		   },
+		   {
+			  "year":2176,
+			  "month":8,
+			  "day":null,
+			  "order":73,
+			  "title":"Homer suicides",
+			  "content":"Book 2 Chapter 37"
+		   },
+		   {
+			  "year":2178,
+			  "month":3,
+			  "day":null,
+			  "order":74,
+			  "title":"Luke contacts Bob from Kappa Ceti",
+			  "content":"Book 2 Chapter 27"
+		   },
+		   {
+			  "year":2178,
+			  "month":5,
+			  "day":null,
+			  "order":75,
+			  "title":"Linus and Henry arrive back at Bill&#39; joins Bobnet&#39; reports on KKP (Klown Kar Planet)&#39; and introduces Henry (Australian replicant) to Bobnet",
+			  "content":"Book 2 Chapter 32"
+		   },
+		   {
+			  "year":2178,
+			  "month":2,
+			  "day":null,
+			  "order":76,
+			  "title":"Riker finds VEHEMENT leader",
+			  "content":"Book 2 Chapter 40"
+		   },
+		   {
+			  "year":2178,
+			  "month":3,
+			  "day":null,
+			  "order":77,
+			  "title":"Riker takes out VEHEMENT leader&#39; Vickers&#39; and HQ after learning that Vickers invented replicant systems",
+			  "content":"Book 2 Chapter 43"
+		   },
+		   {
+			  "year":2180,
+			  "month":5,
+			  "day":null,
+			  "order":78,
+			  "title":"Mario builds space station and 4 Bobs at Gleese 54",
+			  "content":"Book 2 Chapter 13"
+		   },
+		   {
+			  "year":2180,
+			  "month":11,
+			  "day":null,
+			  "order":79,
+			  "title":"Mario gets SCUT and joins Bobnet&#39; reports on Others",
+			  "content":"Book 2 Chapter 15"
+		   },
+		   {
+			  "year":2180,
+			  "month":1,
+			  "day":null,
+			  "order":80,
+			  "title":"Buster has mated&#39; tents have become widespread&#39; Deltan population growth issues lead to gang activity",
+			  "content":"Book 2 Chapter 33"
+		   },
+		   {
+			  "year":2182,
+			  "month":7,
+			  "day":null,
+			  "order":81,
+			  "title":"Deltan riot occurs&#39; Bob and Archimedes begin plans to repopulate other villages",
+			  "content":"Book 2 Chapter 41"
+		   },
+		   {
+			  "year":2182,
+			  "month":9,
+			  "day":null,
+			  "order":82,
+			  "title":"Deltan gangs leave to form second village",
+			  "content":"Book 2 Chapter 47"
+		   },
+		   {
+			  "year":2183,
+			  "month":1,
+			  "day":null,
+			  "order":83,
+			  "title":"Minor update on Deltans",
+			  "content":"Book 2 Chapter 56"
+		   },
+		   {
+			  "year":2185,
+			  "month":6,
+			  "day":null,
+			  "order":84,
+			  "title":"Strike on 82 Eridani against Medeiros launched&#39; Henry joins large group VR session&#39; Bill tests first Bullwinkle prototype",
+			  "content":"Book 2 Chapter 34"
+		   },
+		   {
+			  "year":2187,
+			  "month":11,
+			  "day":null,
+			  "order":85,
+			  "title":"Bashful discovers advanced tech at GL877&#39; is attacked and self-destructs",
+			  "content":"Book 2 Chapter 30"
+		   },
+		   {
+			  "year":2187,
+			  "month":3,
+			  "day":null,
+			  "order":86,
+			  "title":"Bill demonstrates working asteroid moving system",
+			  "content":"Book 2 Chapter 36"
+		   },
+		   {
+			  "year":2188,
+			  "month":9,
+			  "day":null,
+			  "order":87,
+			  "title":"First raptor attack on Vulcan colony",
+			  "content":"Book 2 Chapter 2"
+		   },
+		   {
+			  "year":2188,
+			  "month":12,
+			  "day":null,
+			  "order":88,
+			  "title":"Security fence around Vulcan colony town&#39; Landing&#39; completed&#39; offloading of colonists begins",
+			  "content":"Book 2 Chapter 5"
+		   },
+		   {
+			  "year":2188,
+			  "month":5,
+			  "day":null,
+			  "order":89,
+			  "title":"Hal receives Bashful's last transmission&#39; cautiously closes in on GL877&#39; finds others home system&#39; is attacked with gamma ray emitter and self-destructs",
+			  "content":"Book 2 Chapter 38"
+		   },
+		   {
+			  "year":2188,
+			  "month":8,
+			  "day":null,
+			  "order":90,
+			  "title":"Bill hosts Bobmoot to discuss Others",
+			  "content":"Book 2 Chapter 39"
+		   },
+		   {
+			  "year":2189,
+			  "month":4,
+			  "day":null,
+			  "order":91,
+			  "title":"Exodus 3 (Sam) arrives at Romulous",
+			  "content":"Book 2 Chapter 8"
+		   },
+		   {
+			  "year":2189,
+			  "month":9,
+			  "day":null,
+			  "order":92,
+			  "title":"Howard informs Butterworth of the Others",
+			  "content":"Book 2 Chapter 16"
+		   },
+		   {
+			  "year":2189,
+			  "month":10,
+			  "day":null,
+			  "order":93,
+			  "title":"Family (Julia) comes out of stasis and disembark on Romulous&#39; colonization of Romulus begins&#39; egg-laying parasite discovered on Vulcan",
+			  "content":"Book 2 Chapter 20"
+		   },
+		   {
+			  "year":2189,
+			  "month":11,
+			  "day":null,
+			  "order":94,
+			  "title":"Howard meets Bridget",
+			  "content":"Book 2 Chapter 25"
+		   },
+		   {
+			  "year":2189,
+			  "month":3,
+			  "day":null,
+			  "order":95,
+			  "title":"Garfield tests flying android",
+			  "content":"Book 2 Chapter 44"
+		   },
+		   {
+			  "year":2190,
+			  "month":4,
+			  "day":null,
+			  "order":96,
+			  "title":"Raptors break through fence at Vulcan settlement&#39; discovered to be capable of digging",
+			  "content":"Book 2 Chapter 29"
+		   },
+		   {
+			  "year":2190,
+			  "month":2,
+			  "day":null,
+			  "order":97,
+			  "title":"Rudy and Edwin arrive at KKP with colonists",
+			  "content":"Book 2 Chapter 46"
+		   },
+		   {
+			  "year":2191,
+			  "month":1,
+			  "day":null,
+			  "order":98,
+			  "title":"Howard rolls out AMI-controlled surveillance drone and Cupid bug hunter system&#39; has Bridget test first batch of whiskey&#39; and introduces Bridget to Stephane",
+			  "content":"Book 2 Chapter 31"
+		   },
+		   {
+			  "year":2192,
+			  "month":9,
+			  "day":null,
+			  "order":99,
+			  "title":"Howard and Bridget produce acceptable batch of whiskey",
+			  "content":"Book 2 Chapter 35"
+		   },
+		   {
+			  "year":2193,
+			  "month":3,
+			  "day":null,
+			  "order":100,
+			  "title":"Howard chats with Bridget and Stéphane about distillery business and life as a replicant",
+			  "content":"Book 2 Chapter 42"
+		   },
+		   {
+			  "year":2193,
+			  "month":8,
+			  "day":null,
+			  "order":101,
+			  "title":"Howard and Riker begin looking into replicant tech",
+			  "content":"Book 2 Chapter 45"
+		   },
+		   {
+			  "year":2193,
+			  "month":9,
+			  "day":null,
+			  "order":102,
+			  "title":"Bridget surgery",
+			  "content":"Book 2 Chapter 48"
+		   },
+		   {
+			  "year":2195,
+			  "month":3,
+			  "day":null,
+			  "order":103,
+			  "title":"Colonization of Poseidon begins with Mulder overseeing",
+			  "content":"Book 2 Chapter 49"
+		   },
+		   {
+			  "year":2195,
+			  "month":11,
+			  "day":null,
+			  "order":104,
+			  "title":"Strike on 82 Eridani takes place with Loki leading&#39; Bobs claim system&#39; discover 2 habitable planets and 1 moon",
+			  "content":"Book 2 Chapter 50"
+		   },
+		   {
+			  "year":2195,
+			  "month":4,
+			  "day":null,
+			  "order":105,
+			  "title":"Bridget and Stephane married; Howard leaves Vulcan&#39; Dexter takes over",
+			  "content":"Book 2 Chapter 51"
+		   },
+		   {
+			  "year":2195,
+			  "month":12,
+			  "day":null,
+			  "order":106,
+			  "title":"82 Eridani report reaches Bill&#39; talk of looking for Bender begins",
+			  "content":"Book 2 Chapter 52"
+		   },
+		   {
+			  "year":2195,
+			  "month":1,
+			  "day":null,
+			  "order":107,
+			  "title":"Archimedes becomes grandfather",
+			  "content":"Book 2 Chapter 65"
+		   },
+		   {
+			  "year":2196,
+			  "month":4,
+			  "day":null,
+			  "order":108,
+			  "title":"Hal returns to GL877&#39; scouts and heads to GL 54",
+			  "content":"Book 2 Chapter 53"
+		   },
+		   {
+			  "year":2197,
+			  "month":10,
+			  "day":null,
+			  "order":109,
+			  "title":"Hal receives message that others group is headed to GL 54",
+			  "content":"Book 2 Chapter 54"
+		   },
+		   {
+			  "year":2198,
+			  "month":7,
+			  "day":null,
+			  "order":110,
+			  "title":"FAITH colony separates church from state&#39; Cranston steps down",
+			  "content":"Book 2 Chapter 58"
+		   },
+		   {
+			  "year":2201,
+			  "month":11,
+			  "day":null,
+			  "order":111,
+			  "title":"Mulder leaves Poseidon",
+			  "content":"Book 2 Chapter 62"
+		   },
+		   {
+			  "year":2204,
+			  "month":10,
+			  "day":null,
+			  "order":112,
+			  "title":"Bill makes contact with others via probe in GL 54",
+			  "content":"Book 2 Chapter 55"
+		   },
+		   {
+			  "year":2204,
+			  "month":10,
+			  "day":null,
+			  "order":113,
+			  "title":"Bill holds moot to discuss Others and reveal images",
+			  "content":"Book 2 Chapter 57"
+		   },
+		   {
+			  "year":2205,
+			  "month":4,
+			  "day":null,
+			  "order":114,
+			  "title":"Others launch mission to NN 4285",
+			  "content":"Book 2 Chapter 59"
+		   },
+		   {
+			  "year":2205,
+			  "month":5,
+			  "day":null,
+			  "order":115,
+			  "title":"Claude arrives in Gamma Pavonis",
+			  "content":"Book 2 Chapter 60"
+		   },
+		   {
+			  "year":2205,
+			  "month":9,
+			  "day":null,
+			  "order":116,
+			  "title":"Oliver (Bill clone) comes online in Alpha Centauri",
+			  "content":"Book 2 Chapter 61"
+		   },
+		   {
+			  "year":2207,
+			  "month":2,
+			  "day":null,
+			  "order":117,
+			  "title":"Jacques discovers intelligent life (Pavs) at Delta Pavonis",
+			  "content":"Book 2 Chapter 63"
+		   },
+		   {
+			  "year":2207,
+			  "month":3,
+			  "day":null,
+			  "order":118,
+			  "title":"Bill holds another moot to discuss Others",
+			  "content":"Book 2 Chapter 64"
+		   },
+		   {
+			  "year":2208,
+			  "month":1,
+			  "day":null,
+			  "order":119,
+			  "title":"Others launch convoy to Delta Pavonis",
+			  "content":"Book 2 Chapter 66"
+		   },
+		   {
+			  "year":2210,
+			  "month":12,
+			  "day":null,
+			  "order":120,
+			  "title":"Howard explores HIP 14101&#39; human android prototype experimenting begins prior to Stephane's death",
+			  "content":"Book 2 Chapter 67"
+		   },
+		   {
+			  "year":2211,
+			  "month":1,
+			  "day":null,
+			  "order":121,
+			  "title":"Howard uses human android prototype to attend Stephane's funeral",
+			  "content":"Book 2 Chapter 69"
+		   },
+		   {
+			  "year":2211,
+			  "month":5,
+			  "day":null,
+			  "order":122,
+			  "title":"Howard talks Butterworth into being replicated upon death",
+			  "content":"Book 2 Chapter 70"
+		   },
+		   {
+			  "year":2212,
+			  "month":9,
+			  "day":null,
+			  "order":123,
+			  "title":"Jacques catalogs Pav planet and society",
+			  "content":"Book 2 Chapter 68"
+		   },
+		   {
+			  "year":2213,
+			  "month":6,
+			  "day":null,
+			  "order":124,
+			  "title":"Bob uses Deltan android on Delta Eridani",
+			  "content":"Book 2 Chapter 71"
+		   },
+		   {
+			  "year":2216,
+			  "month":1,
+			  "day":null,
+			  "order":125,
+			  "title":"Howard uses realistic android to meet Bridget",
+			  "content":"Book 2 Chapter 75"
+		   },
+		   {
+			  "year":2217,
+			  "month":2,
+			  "day":null,
+			  "order":126,
+			  "title":"First real battle with Others takes place at Delta Pavonis&#39; Others decide to go after Sol and Epsilon Eridani next",
+			  "content":"Book 2 Chapter 72"
+		   },
+		   {
+			  "year":2217,
+			  "month":2,
+			  "day":null,
+			  "order":127,
+			  "title":"Collection of 20&#39;000 Pavs takes place",
+			  "content":"Book 2 Chapter 73"
+		   },
+		   {
+			  "year":2217,
+			  "month":5,
+			  "day":null,
+			  "order":128,
+			  "title":"Bill gets an idea to deal with the Others",
+			  "content":"Book 2 Chapter 74"
+		   },
+		   {
+			  "year":2220,
+			  "month":11,
+			  "day":null,
+			  "order":129,
+			  "title":"Archimedes’ wife Diana dies",
+			  "content":"Book 2 Chapter 76"
+		   },
+		   {
+			  "year":2221,
+			  "month":4,
+			  "day":null,
+			  "order":130,
+			  "title":"Others finish stripping Delta Pavonis&#39; Bill wakes 8 Pavs to decide if they want to go back to their home planet (Aszjan) or find a new one",
+			  "content":"Book 2 Chapter 77"
+		   },
+		   {
+			  "year":2212,
+			  "month":11,
+			  "day":null,
+			  "order":131,
+			  "title":"Marcus discusses concerning governing on Poseidon with Kal and Gina",
+			  "content":"Book 3 Chapter 3"
+		   },
+		   {
+			  "year":2214,
+			  "month":6,
+			  "day":null,
+			  "order":132,
+			  "title":"Marcus uses android for the first time&#39; helps plot revolution on Poseidon",
+			  "content":"Book 3 Chapter 8"
+		   },
+		   {
+			  "year":2215,
+			  "month":2,
+			  "day":null,
+			  "order":133,
+			  "title":"Marcus unveils aerial cities to revolutionaries",
+			  "content":"Book 3 Chapter 13"
+		   },
+		   {
+			  "year":2215,
+			  "month":3,
+			  "day":null,
+			  "order":134,
+			  "title":"Marcus moves some Poseidon residences to aerial cities",
+			  "content":"Book 3 Chapter 16"
+		   },
+		   {
+			  "year":2215,
+			  "month":9,
+			  "day":null,
+			  "order":135,
+			  "title":"Poseidon council cuts off aerial residents&#39; blows up Marcus’s decoy",
+			  "content":"Book 3 Chapter 19"
+		   },
+		   {
+			  "year":2215,
+			  "month":9,
+			  "day":null,
+			  "order":136,
+			  "title":"Poseidon council strikes at revolutionaries&#39; Marcus strikes back",
+			  "content":"Book 3 Chapter 26"
+		   },
+		   {
+			  "year":2215,
+			  "month":9,
+			  "day":null,
+			  "order":137,
+			  "title":"Marcus seems to have won the war against the council",
+			  "content":"Book 3 Chapter 31"
+		   },
+		   {
+			  "year":2215,
+			  "month":10,
+			  "day":null,
+			  "order":138,
+			  "title":"Marcus and revolutionaries discuss fate of the council and future plans for Poseidon",
+			  "content":"Book 3 Chapter 35"
+		   },
+		   {
+			  "year":2217,
+			  "month":2,
+			  "day":null,
+			  "order":139,
+			  "title":"Howard goes to Bridget for consolation after battle with Others",
+			  "content":"Book 3 Chapter 2"
+		   },
+		   {
+			  "year":2217,
+			  "month":11,
+			  "day":null,
+			  "order":140,
+			  "title":"Howard is in a relationship with Bridget",
+			  "content":"Book 3 Chapter 4"
+		   },
+		   {
+			  "year":2217,
+			  "month":11,
+			  "day":null,
+			  "order":141,
+			  "title":"Butterworth suicides after being diagnosed with dementia&#39;",
+			  "content":"Book 3 Chapter 7"
+		   },
+		   {
+			  "year":2218,
+			  "month":2,
+			  "day":null,
+			  "order":142,
+			  "title":"Howard is confronted by Bridget’s daughter",
+			  "content":"Book 3 Chapter 9"
+		   },
+		   {
+			  "year":2218,
+			  "month":10,
+			  "day":null,
+			  "order":143,
+			  "title":"Julia dies&#39; Riker uses android to attend funeral",
+			  "content":"Book 3 Chapter 12"
+		   },
+		   {
+			  "year":2218,
+			  "month":5,
+			  "day":null,
+			  "order":144,
+			  "title":"Howard meets some of Bridget’s friends over dinner",
+			  "content":"Book 3 Chapter 14"
+		   },
+		   {
+			  "year":2218,
+			  "month":2,
+			  "day":null,
+			  "order":145,
+			  "title":"Marcus has no further duties on Poseidon&#39; considers exploring the ocean",
+			  "content":"Book 3 Chapter 39"
+		   },
+		   {
+			  "year":2219,
+			  "month":6,
+			  "day":null,
+			  "order":146,
+			  "title":"Howard discovers life in atmosphere of a gas giant at HIP 14101&#39; brings Bridget into his VR using VR gear",
+			  "content":"Book 3 Chapter 20"
+		   },
+		   {
+			  "year":2220,
+			  "month":10,
+			  "day":null,
+			  "order":147,
+			  "title":"Mack arrives with first colonists at 82 Eridani; Vancouver colonists settle on Asgard (outer&#39; steppe)&#39; Japanese settle on Takama-ga-hara (inner&#39; jungle); Jack names Asgard’s habitable moon 'Valhalla’",
+			  "content":"Book 3 Chapter 18"
+		   },
+		   {
+			  "year":2220,
+			  "month":5,
+			  "day":null,
+			  "order":148,
+			  "title":"Bridget dies&#39; children block efforts to replicate her",
+			  "content":"Book 3 Chapter 23"
+		   },
+		   {
+			  "year":2220,
+			  "month":5,
+			  "day":null,
+			  "order":149,
+			  "title":"Howard deals with the trial",
+			  "content":"Book 3 Chapter 29"
+		   },
+		   {
+			  "year":2220,
+			  "month":9,
+			  "day":null,
+			  "order":150,
+			  "title":"Judge rules in favor of Bridget’s will&#39; Rosie attempts to sabotage Bridget's stasis pod&#39; Howard has Bill replicate Bridget during the trial",
+			  "content":"Book 3 Chapter 37"
+		   },
+		   {
+			  "year":2220,
+			  "month":10,
+			  "day":null,
+			  "order":151,
+			  "title":"Howard brings Bridget online",
+			  "content":"Book 3 Chapter 41"
+		   },
+		   {
+			  "year":2220,
+			  "month":12,
+			  "day":null,
+			  "order":152,
+			  "title":"Bridget and Howard check out Odin life via flying android; Bridget attends her first moot",
+			  "content":"Book 3 Chapter 44"
+		   },
+		   {
+			  "year":2221,
+			  "month":6,
+			  "day":null,
+			  "order":153,
+			  "title":"Howard and Bridget discuss building a prototype floating city on Odin",
+			  "content":"Book 3 Chapter 46"
+		   },
+		   {
+			  "year":2223,
+			  "month":1,
+			  "day":null,
+			  "order":154,
+			  "title":"Bill is capable of moving planets&#39; has cloned Icarus and Daedalus",
+			  "content":"Book 3 Chapter 6"
+		   },
+		   {
+			  "year":2223,
+			  "month":3,
+			  "day":null,
+			  "order":155,
+			  "title":"Mario reports to Bill on further discovery of Others’ system stripping",
+			  "content":"Book 3 Chapter 11"
+		   },
+		   {
+			  "year":2223,
+			  "month":6,
+			  "day":null,
+			  "order":156,
+			  "title":"Mack destroyed by Medeiros during a conversation with Bill&#39; his matrix survives",
+			  "content":"Book 3 Chapter 21"
+		   },
+		   {
+			  "year":2223,
+			  "month":6,
+			  "day":null,
+			  "order":157,
+			  "title":"Bill begins dealing with Medeiros at 82 Eridani",
+			  "content":"Book 3 Chapter 25"
+		   },
+		   {
+			  "year":2223,
+			  "month":6,
+			  "day":null,
+			  "order":158,
+			  "title":"Bill takes out Medeiros&#39; brings Mack back online",
+			  "content":"Book 3 Chapter 30"
+		   },
+		   {
+			  "year":2224,
+			  "month":3,
+			  "day":null,
+			  "order":159,
+			  "title":"Start of third book&#39; Bob hunts with Deltans via android&#39; including Arnold's son Donald; group is accosted by a group from other village&#39; Caerleon&#39; led by Fred",
+			  "content":"Book 3 Chapter 1"
+		   },
+		   {
+			  "year":2224,
+			  "month":3,
+			  "day":null,
+			  "order":160,
+			  "title":"Bob executes ploy to outsmart Fred's group",
+			  "content":"Book 3 Chapter 5"
+		   },
+		   {
+			  "year":2224,
+			  "month":3,
+			  "day":null,
+			  "order":161,
+			  "title":"Bob avoids Fred’s group while solo hunting",
+			  "content":"Book 3 Chapter 10"
+		   },
+		   {
+			  "year":2224,
+			  "month":4,
+			  "day":null,
+			  "order":162,
+			  "title":"Bob catches Fred alone&#39; threatens him",
+			  "content":"Book 3 Chapter 28"
+		   },
+		   {
+			  "year":2224,
+			  "month":9,
+			  "day":null,
+			  "order":163,
+			  "title":"Fred and co. kidnap Archimedes&#39; Buster kills Fred during rescue",
+			  "content":"Book 3 Chapter 34"
+		   },
+		   {
+			  "year":2225,
+			  "month":1,
+			  "day":null,
+			  "order":164,
+			  "title":"Archimedes develops a plan to make peace with the other village",
+			  "content":"Book 3 Chapter 40"
+		   },
+		   {
+			  "year":2225,
+			  "month":4,
+			  "day":null,
+			  "order":165,
+			  "title":"The two Deltan villages have established trade",
+			  "content":"Book 3 Chapter 50"
+		   },
+		   {
+			  "year":2226,
+			  "month":12,
+			  "day":null,
+			  "order":166,
+			  "title":"Howard and Bridget deploy floating city&#39; Rivendell&#39; in Odin’s atmosphere&#39; floating blimp animal promptly attempts to mate with it",
+			  "content":"Book 3 Chapter 56"
+		   },
+		   {
+			  "year":2227,
+			  "month":4,
+			  "day":null,
+			  "order":167,
+			  "title":"Charles reports material shortages to Riker&#39; Riker tries to sell UN on putting Earth population in stasis",
+			  "content":"Book 3 Chapter 15"
+		   },
+		   {
+			  "year":2227,
+			  "month":3,
+			  "day":null,
+			  "order":168,
+			  "title":"Herschel and Neil investigate 2 Others cargo ship remains at Delta Pavonis&#39; find non-fusion power source",
+			  "content":"Book 3 Chapter 22"
+		   },
+		   {
+			  "year":2227,
+			  "month":4,
+			  "day":null,
+			  "order":169,
+			  "title":"Herschel and Neil continue investigating Others wreckage",
+			  "content":"Book 3 Chapter 24"
+		   },
+		   {
+			  "year":2227,
+			  "month":7,
+			  "day":null,
+			  "order":170,
+			  "title":"Herschel and Neil power up Others cargo ship&#39; report to Bill",
+			  "content":"Book 3 Chapter 27"
+		   },
+		   {
+			  "year":2227,
+			  "month":9,
+			  "day":null,
+			  "order":171,
+			  "title":"Bill and Garfield test prototype of Others power source",
+			  "content":"Book 3 Chapter 32"
+		   },
+		   {
+			  "year":2227,
+			  "month":10,
+			  "day":null,
+			  "order":172,
+			  "title":"Bill holds moot to discuss Herschel & Neil's findings&#39; announces some monitoring drones have been found by Others",
+			  "content":"Book 3 Chapter 33"
+		   },
+		   {
+			  "year":2227,
+			  "month":10,
+			  "day":null,
+			  "order":173,
+			  "title":"Riker informs UN of the Others’ ship&#39; Bellerophon",
+			  "content":"Book 3 Chapter 36"
+		   },
+		   {
+			  "year":2228,
+			  "month":2,
+			  "day":null,
+			  "order":174,
+			  "title":"Mack has been unable to detect any signs of Medeiros at 82 Eridani&#39; feels they should've found something",
+			  "content":"Book 3 Chapter 42"
+		   },
+		   {
+			  "year":2230,
+			  "month":6,
+			  "day":null,
+			  "order":175,
+			  "title":"Bill holds status update moot&#39; monitoring sphere planned for Sol",
+			  "content":"Book 3 Chapter 51"
+		   },
+		   {
+			  "year":2230,
+			  "month":8,
+			  "day":null,
+			  "order":176,
+			  "title":"Bill fails to convince Claude to divert his growing Gamma Pavonis defense Force to Sol",
+			  "content":"Book 3 Chapter 53"
+		   },
+		   {
+			  "year":2230,
+			  "month":10,
+			  "day":null,
+			  "order":177,
+			  "title":"Howard and Bridget attend Howie's wedding",
+			  "content":"Book 3 Chapter 59"
+		   },
+		   {
+			  "year":2232,
+			  "month":1,
+			  "day":null,
+			  "order":178,
+			  "title":"Icarus and Daedalus are in transit&#39; likely to Others’ home system with planet and moon",
+			  "content":"Book 3 Chapter 17"
+		   },
+		   {
+			  "year":2232,
+			  "month":9,
+			  "day":null,
+			  "order":179,
+			  "title":"Bob comes to terms with Archimedes eventual death",
+			  "content":"Book 3 Chapter 61"
+		   },
+		   {
+			  "year":2233,
+			  "month":5,
+			  "day":null,
+			  "order":180,
+			  "title":"Archimedes dies&#39; Bob leaves Eden",
+			  "content":"Book 3 Chapter 69"
+		   },
+		   {
+			  "year":2233,
+			  "month":6,
+			  "day":null,
+			  "order":181,
+			  "title":"Bob says goodbye to Eden",
+			  "content":"Book 3 Chapter 72"
+		   },
+		   {
+			  "year":2236,
+			  "month":9,
+			  "day":null,
+			  "order":182,
+			  "title":"Herschel and Neil are en route to Earth in large Others ship",
+			  "content":"Book 3 Chapter 38"
+		   },
+		   {
+			  "year":2240,
+			  "month":3,
+			  "day":null,
+			  "order":183,
+			  "title":"Icarus and Daedalus are approaching Others’home system",
+			  "content":"Book 3 Chapter 43"
+		   },
+		   {
+			  "year":2240,
+			  "month":12,
+			  "day":null,
+			  "order":184,
+			  "title":"Bill&#39; Riker&#39; and Mario develop plans for surveillance of Others’ home system",
+			  "content":"Book 3 Chapter 47"
+		   },
+		   {
+			  "year":2243,
+			  "month":null,
+			  "day":null,
+			  "order":185,
+			  "title":"Bill's terraforming of Ragnarok has reached livability stage",
+			  "content":"Book 3 Chapter 55"
+		   },
+		   {
+			  "year":2244,
+			  "month":2,
+			  "day":null,
+			  "order":186,
+			  "title":"Howard and Bridget reside in floating city on Big Top (KKP’s parent planet)&#39; discuss adoption",
+			  "content":"Book 3 Chapter 62"
+		   },
+		   {
+			  "year":2247,
+			  "month":5,
+			  "day":null,
+			  "order":187,
+			  "title":"Jacques arrives ahead of Pavs (Phineas and Ferb controlling colony ships) at HIP 84051-2",
+			  "content":"Book 3 Chapter 45"
+		   },
+		   {
+			  "year":2248,
+			  "month":11,
+			  "day":null,
+			  "order":188,
+			  "title":"Mario updates Riker on surveillance of Others",
+			  "content":"Book 3 Chapter 49"
+		   },
+		   {
+			  "year":2252,
+			  "month":2,
+			  "day":null,
+			  "order":189,
+			  "title":"Last large farm on Earth fails&#39;",
+			  "content":"Book 3 Chapter 52"
+		   },
+		   {
+			  "year":2256,
+			  "month":7,
+			  "day":null,
+			  "order":190,
+			  "title":"Jacques helps Pavs colonize 84051-2",
+			  "content":"Book 3 Chapter 48"
+		   },
+		   {
+			  "year":2257,
+			  "month":3,
+			  "day":null,
+			  "order":191,
+			  "title":"Riker attends Justin's 75th birthday party",
+			  "content":"Book 3 Chapter 54"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":192,
+			  "title":"Others detected approaching Sol&#39; Herschel and Neil arrive at Sol",
+			  "content":"Book 3 Chapter 57"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":193,
+			  "title":"Herschel&#39; Neil&#39; and Riker discuss the evacuation of Earth",
+			  "content":"Book 3 Chapter 58"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":194,
+			  "title":"Sneak attack on the Others",
+			  "content":"Book 3 Chapter 60"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":195,
+			  "title":"Herschel and Neil arrive at Earth&#39; Herschel comes up with plan to save all remaining humans&#39; begins collecting them",
+			  "content":"Book 3 Chapter 63"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":196,
+			  "title":"Battle with Others begins",
+			  "content":"Book 3 Chapter 64"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":197,
+			  "title":"Collection of humans at Sol continues",
+			  "content":"Book 3 Chapter 65"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":198,
+			  "title":"Battle with Others continues",
+			  "content":"Book 3 Chapter 66"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":199,
+			  "title":"Herschel and Neil finish evacuating Earth",
+			  "content":"Book 3 Chapter 67"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":200,
+			  "title":"Battle with others ends",
+			  "content":"Book 3 Chapter 68"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":201,
+			  "title":"Icarus and Daedalus destroy GL 877&#39; Others’ home star",
+			  "content":"Book 3 Chapter 70"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":202,
+			  "title":"Post-battle updates&#39; Herschel and Neil drop non-stasis humans back on Earth",
+			  "content":"Book 3 Chapter 71"
+		   },
+		   {
+			  "year":2257,
+			  "month":4,
+			  "day":null,
+			  "order":203,
+			  "title":"Jacques updates Pavs on the defeat of the Others",
+			  "content":"Book 3 Chapter 74"
+		   },
+		   {
+			  "year":2258,
+			  "month":1,
+			  "day":null,
+			  "order":204,
+			  "title":"Bobs discuss formally announcing that they are not&#39; collectively&#39; humanity's slaves",
+			  "content":"Book 3 Chapter 73"
+		   },
+		   {
+			  "year":2259,
+			  "month":1,
+			  "day":null,
+			  "order":205,
+			  "title":"Herschel and Neil leave Sol with the rest of humanity&#39; heading for 82 Eridani",
+			  "content":"Book 3 Chapter 75"
+		   },
+		   {
+			  "year":2263,
+			  "month":10,
+			  "day":null,
+			  "order":206,
+			  "title":"Bob returns to Earth for a pilgrimage&#39; then head out to the stars",
+			  "content":"Book 3 Chapter 76"
+		   }
+		]
+	};
+	let timeline = new SimpleTimeline(timelineOptions);
+</script>
+
+</body>
+</html>
