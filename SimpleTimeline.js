@@ -95,7 +95,7 @@ class SimpleTimeline
 			yearContainer.innerHTML = this.yearTemplate.outerHTML;
 			yearContainer = yearContainer.querySelector('.year');
 			yearContainer.innerHTML = '<h1 class="yearTitle">1990</h1>';
-			yearContainer.querySelector('.yearTitle').innerHTML = years[i];
+			yearContainer.querySelector('.yearTitle').innerHTML = 'Year ' + years[i];
 			yearContainer.classList.add('year' + years[i]);
 
 			this.timelineEl.appendChild(yearContainer);
@@ -125,10 +125,6 @@ class SimpleTimeline
 			{
 				return x.day - y.day;
 			}
-			else
-			{
-				console.log(1);
-            }
         });
 
 		this.data.sort(function (x, y)
@@ -138,9 +134,6 @@ class SimpleTimeline
 				return x.month - y.month;
 			}
 		});
-
-		
-		
 
 		for (var i = 0; i < this.data.length; i++)
 		{
