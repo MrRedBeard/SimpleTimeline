@@ -111,6 +111,37 @@ class SimpleTimeline
 		//<div class="content"></div>
 		//this.timelineEl.querySelector('.year').appendChild(this.entryTemplate);
 
+		this.data.sort(function (x, y)
+		{
+			if (x.order !== null && y.order !== null)
+			{
+				return x.order - y.order;
+			}
+		});
+
+		this.data.sort(function (x, y)
+		{
+			if (x.day !== null && y.day !== null)
+			{
+				return x.day - y.day;
+			}
+			else
+			{
+				console.log(1);
+            }
+        });
+
+		this.data.sort(function (x, y)
+		{
+			if (x.month !== null && y.month !== null)
+			{
+				return x.month - y.month;
+			}
+		});
+
+		
+		
+
 		for (var i = 0; i < this.data.length; i++)
 		{
 			let entry = document.createElement('div');
@@ -129,18 +160,18 @@ class SimpleTimeline
 	}
 }
 
-class clsSimpleTimelineData
-{
-	constructor()
-	{
-		this.year = 0;
-		this.month = 0;
-		this.day = 0;
-		this.order = 0;
-		this.title = '';
-		this.content = '';
-	}
-}
+//class clsSimpleTimelineData
+//{
+//	constructor()
+//	{
+//		this.year = 0;
+//		this.month = 0;
+//		this.day = 0;
+//		this.order = 0;
+//		this.title = '';
+//		this.content = '';
+//	}
+//}
 
 //JSON.stringify(obj);
 //JSON.parse()

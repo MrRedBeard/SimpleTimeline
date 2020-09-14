@@ -10,6 +10,7 @@ simpleTimeline .timeline
 	overflow-x: auto;
 	overflow-y: hidden;
 	padding: 30px 0 10px 0;
+	padding-bottom: 30px;
 	position: relative;
 	max-height: 430px;
 	-ms-overflow-style: none;  /* IE and Edge */
@@ -23,7 +24,6 @@ simpleTimeline .timeline::-webkit-scrollbar
 
 simpleTimeline .topBar
 {
-	height: 3px;
 	height: 10px;
 	background: #eee;
 	background-color: red;
@@ -35,7 +35,6 @@ simpleTimeline .topBar
 
 simpleTimeline .bottomBar
 {
-	height: 3px;
 	height: 10px;
 	background: #eee;
 	background-color: red;
@@ -43,7 +42,7 @@ simpleTimeline .bottomBar
 	position: relative;
 	top: 15px;
 	left: 0;
-	display: none;
+	/*display: none;*/
 }
 
 simpleTimeline .year
@@ -63,6 +62,7 @@ simpleTimeline .year
 	max-height: 400px;
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
+	margin-right: 20px;
 }
 
 simpleTimeline .year::-webkit-scrollbar 
