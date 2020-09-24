@@ -2,6 +2,8 @@
 
 Simple Timeline is css based but uses a js class to build the timeline from data. Simple Timeline is still being built but will be draggable and should work via touch. 
 
+## Still being written
+
 ![ScreenShot](./ScreenShot.PNG)
 
 ```javascript
