@@ -2,6 +2,7 @@ simpleTimeline
 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
+	display: block;
 }
 
 simpleTimeline .timeline
@@ -13,13 +14,9 @@ simpleTimeline .timeline
 	padding-bottom: 30px;
 	position: relative;
 	max-height: 430px;
-	-ms-overflow-style: none;  /* IE and Edge */
+	height: 430px;
+	/*-ms-overflow-style: none;*/  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
-}
-
-simpleTimeline .timeline::-webkit-scrollbar 
-{
-	display: none;
 }
 
 simpleTimeline .topBar
@@ -32,7 +29,10 @@ simpleTimeline .topBar
 	top: 15px;
 	left: 0;
 }
-
+simpleTimeline .timeline::-webkit-scrollbar 
+{
+	display: none;
+}
 simpleTimeline .bottomBar
 {
 	height: 10px;
@@ -59,8 +59,10 @@ simpleTimeline .year
 	overflow-y: auto;
 	min-width: 200px;
 	max-width: 500px;
-	max-height: 400px;
-	-ms-overflow-style: none;  /* IE and Edge */
+	max-height: 100%;
+	height: auto;
+	min-height: 100px;
+	/*-ms-overflow-style: none;*/  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
 	margin-right: 20px;
 }
