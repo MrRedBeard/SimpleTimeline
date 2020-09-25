@@ -85,7 +85,10 @@ class SimpleTimeline
 		let years = [];
 		for (var i = 0; i < this.data.length; i++)
 		{
-			years.push(this.data[i].year);
+			if (!years.includes(this.data[i].year))
+            {
+				years.push(this.data[i].year); //Remove duplicate years
+            }
 		}
 		years = years.sort();
 
@@ -97,6 +100,7 @@ class SimpleTimeline
 			yearContainer.innerHTML = '<h1 class="yearTitle">1990</h1>';
 			yearContainer.querySelector('.yearTitle').innerHTML = 'Year ' + years[i];
 			yearContainer.classList.add('year' + years[i]);
+			yearContainer.id = 'year' + years[i];
 
 			this.timelineEl.appendChild(yearContainer);
         }
@@ -110,14 +114,6 @@ class SimpleTimeline
 		//<h2>Entry Title</h2>
 		//<div class="content"></div>
 		//this.timelineEl.querySelector('.year').appendChild(this.entryTemplate);
-
-		this.data.sort(function (x, y)
-		{
-			if (x.order !== null && y.order !== null)
-			{
-				return x.order - y.order;
-			}
-		});
 
 		this.data.sort(function (x, y)
 		{
@@ -135,11 +131,29 @@ class SimpleTimeline
 			}
 		});
 
+		this.data.sort(function (x, y)
+		{
+			if (x.order !== null && y.order !== null)
+			{
+				return x.order - y.order;
+			}
+		});
+
 		for (var i = 0; i < this.data.length; i++)
 		{
 			let entry = document.createElement('div');
 			entry.innerHTML = this.entryTemplate.outerHTML;
 			entry = entry.querySelector('.entry');
+			let id = '' + this.data[i].year;
+			if (this.data[i].month)
+            {
+				id += this.data[i].month;
+				if (this.data[i].day)
+                {
+					id += this.data[i].day;
+                }
+            }
+			entry.id = id;
 
 			let date = [this.data[i].month, this.data[i].day, this.data[i].year].filter(Boolean).join('/');
 			entry.querySelector('h1').innerHTML = date;
