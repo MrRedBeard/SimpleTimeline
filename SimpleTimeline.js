@@ -144,15 +144,8 @@ class SimpleTimeline
 			let entry = document.createElement('div');
 			entry.innerHTML = this.entryTemplate.outerHTML;
 			entry = entry.querySelector('.entry');
-			let id = '' + this.data[i].year;
-			if (this.data[i].month)
-            {
-				id += this.data[i].month;
-				if (this.data[i].day)
-                {
-					id += this.data[i].day;
-                }
-            }
+
+			let id = [this.data[i].month, this.data[i].day, this.data[i].year].filter(Boolean).join('');
 			entry.id = id;
 
 			let date = [this.data[i].month, this.data[i].day, this.data[i].year].filter(Boolean).join('/');
