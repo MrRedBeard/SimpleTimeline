@@ -1,22 +1,44 @@
+/* Prevents breaking of timeline when timeline navigation occurs */
+*, ::after, ::before
+{
+	box-sizing: border-box;
+}
+
 simpleTimeline
 {
+	max-width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	display: block;
+	flex-direction: column !important;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 simpleTimeline .timeline
 {
+	
+	max-width: 100%;
+	max-height: 430px;
+	height: 430px;
 	white-space: nowrap;
 	overflow-x: auto;
 	overflow-y: hidden;
 	padding: 30px 0 10px 0;
 	padding-bottom: 30px;
 	position: relative;
-	max-height: 430px;
-	height: 430px;
-	/*-ms-overflow-style: none;*/  /* IE and Edge */
-	scrollbar-width: none;  /* Firefox */
+}
+
+simpleTimeline .timeline::-webkit-scrollbar, simpleTimeline .year::-webkit-scrollbar
+{
+	display: none;
+}
+simpleTimeline .timeline, simpleTimeline .year
+{
+	/*IE & Edge*/
+	-ms-overflow-style: none;
+	/* Firefox */
+	scrollbar-width: none;
 }
 
 simpleTimeline .topBar
@@ -28,10 +50,6 @@ simpleTimeline .topBar
 	position: relative;
 	top: 15px;
 	left: 0;
-}
-simpleTimeline .timeline::-webkit-scrollbar 
-{
-	display: none;
 }
 simpleTimeline .bottomBar
 {
@@ -50,6 +68,7 @@ simpleTimeline .year
 	display: inline-block;
 	vertical-align: top;
 	padding: 10px;
+	margin-right: 20px;
 	font-size: 12px;
 	text-align: center;
 	position: relative;
@@ -59,17 +78,9 @@ simpleTimeline .year
 	overflow-y: auto;
 	min-width: 200px;
 	max-width: 500px;
-	max-height: 100%;
+	max-height: 99%;
 	height: auto;
 	min-height: 100px;
-	/*-ms-overflow-style: none;*/  /* IE and Edge */
-	scrollbar-width: none;  /* Firefox */
-	margin-right: 20px;
-}
-
-simpleTimeline .year::-webkit-scrollbar 
-{
-	display: none;
 }
 
 simpleTimeline .year:after
@@ -87,18 +98,18 @@ simpleTimeline .year:after
 	margin-left: -6px;
 }
 
-simpleTimeline .year:before
+/*simpleTimeline .year:before
 {
 	content: '';
 	display: block;
 	background: #06182E;
 	width: 5px;
-	height: 20px;
+	height: 30px;
 	position: absolute;
 	left: 50%;
-	top: -20px;
+	top: 0px;
 	margin-left: -2px;
-}
+}*/
 
 simpleTimeline .year .yearTitle
 {
