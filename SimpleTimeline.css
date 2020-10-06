@@ -215,6 +215,10 @@ simpleTimeline .year .entry img
   padding: 4px 15px;
   margin-left: 0.25em;
 }
+.yearStyle:hover {
+  background-color: var(--color-red-1);
+  color: var(--color-white-1);
+}
 simpleTimeline .year .entry .content {
   letter-spacing: 0.2em;
   margin-bottom: 10px;
