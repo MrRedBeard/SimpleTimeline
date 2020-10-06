@@ -210,9 +210,10 @@ simpleTimeline .year .entry img
 /* Adding style to the buttons */
 .yearStyle 
 {
-	border: 2px solid red;
+  border: 2px solid var(--color-red-1);
   border-radius: 6px;
-  margin:2px;
+  padding: 4px 15px;
+  margin-left: 0.25em;
 }
 simpleTimeline .year .entry .content {
   letter-spacing: 0.2em;
