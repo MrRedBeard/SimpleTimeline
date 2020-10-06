@@ -211,7 +211,8 @@ simpleTimeline .year .entry img
 .yearStyle 
 {
 	border: 2px solid red;
-	border-radius: 6px;
+  border-radius: 6px;
+  padding: 4px 15px;
 }
 simpleTimeline .year .entry .content {
   letter-spacing: 0.2em;
