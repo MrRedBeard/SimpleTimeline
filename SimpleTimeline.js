@@ -115,27 +115,17 @@ class SimpleTimeline
 		//<div class="content"></div>
 		//this.timelineEl.querySelector('.year').appendChild(this.entryTemplate);
 
-		this.data.sort(function (x, y)
-		{
-			if (x.day !== null && y.day !== null)
-			{
-				return x.day - y.day;
+		this.data.sort(function (x, y) {
+			if (x.order !== null && y.order !== null) {
+				return x.order - y.order;
 			}
-        });
 
-		this.data.sort(function (x, y)
-		{
-			if (x.month !== null && y.month !== null)
-			{
+			if (x.month !== null && y.month !== null) {
 				return x.month - y.month;
 			}
-		});
 
-		this.data.sort(function (x, y)
-		{
-			if (x.order !== null && y.order !== null)
-			{
-				return x.order - y.order;
+			if (x.day !== null && y.day !== null) {
+				return x.day - y.day;
 			}
 		});
 
