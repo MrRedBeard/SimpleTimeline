@@ -26,7 +26,7 @@ simpleTimeline .timeline
 	width: 100%;
 	max-width: 100%;
 	min-width: 100%;
-	
+
 	white-space: nowrap;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -173,4 +173,10 @@ simpleTimeline .year .entry img
 	max-width: 100%;
 	height: auto;
 	margin-bottom: 10px;
+}
+
+/* Adding style to the buttons */
+.yearStyle {
+	border: 2px solid red;
+	border-radius: 6px;
 }
