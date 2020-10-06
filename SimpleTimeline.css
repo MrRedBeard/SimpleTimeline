@@ -16,6 +16,30 @@
   box-sizing: border-box;
 }
 
+simpleTimeline .timeline
+{
+	max-height: 100%;
+	min-height: 100%;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 30px 0 10px 0;
+	padding-bottom: 30px;
+	position: relative;
+
+	-webkit-overflow-scrolling: touch;
+}
+
+simpleTimeline .timeline::-webkit-scrollbar, simpleTimeline .year::-webkit-scrollbar
+{
+	display: none;
+}
+
 simpleTimeline {
   max-width: 100%;
   font-family: Arial, Helvetica, sans-serif;
@@ -174,6 +198,21 @@ simpleTimeline .year .entry h2 {
   max-width: 100%;
 }
 
+
+simpleTimeline .year .entry img
+{
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+/* Adding style to the buttons */
+.yearStyle 
+{
+	border: 2px solid red;
+	border-radius: 6px;
+}
 simpleTimeline .year .entry .content {
   letter-spacing: 0.2em;
   margin-bottom: 10px;
