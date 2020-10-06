@@ -213,10 +213,14 @@ simpleTimeline .year .entry img
 }
 .yearStyle 
 {
-	border: 2px solid red;
+	border: 2px solid var(--color-red-1);
   border-radius: 6px;
   padding: 4px 15px;
   margin-left: 0.25em;
+}
+.yearStyle:hover {
+  background-color: var(--color-red-1);
+  color: var(--color-white-1);
 }
 simpleTimeline .year .entry .content {
   letter-spacing: 0.2em;
