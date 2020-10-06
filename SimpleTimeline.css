@@ -35,7 +35,7 @@ simpleTimeline .timeline
 	-webkit-overflow-scrolling: touch;
 }
 
-simpleTimeline .timeline::-webkit-scrollbar, simpleTimeline .year::-webkit-scrollbar
+simpleTimeline .timeline::-webkit-scrollbar, simpleTimeline .year::-webkit-scrollbar, #filters::-webkit-scrollbar 
 {
 	display: none;
 }
@@ -211,7 +211,8 @@ simpleTimeline .year .entry img
 .yearStyle 
 {
 	border: 2px solid red;
-	border-radius: 6px;
+  border-radius: 6px;
+  margin:2px;
 }
 simpleTimeline .year .entry .content {
   letter-spacing: 0.2em;
@@ -226,4 +227,9 @@ simpleTimeline .year .entry img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
+}
+
+#filters{
+  overflow-x: auto;
+  padding: 2px;
 }
