@@ -35,7 +35,7 @@ simpleTimeline .timeline
 	-webkit-overflow-scrolling: touch;
 }
 
-simpleTimeline .timeline::-webkit-scrollbar, simpleTimeline .year::-webkit-scrollbar
+simpleTimeline .timeline::-webkit-scrollbar, simpleTimeline .year::-webkit-scrollbar, #filters::-webkit-scrollbar 
 {
 	display: none;
 }
@@ -235,4 +235,9 @@ simpleTimeline .year .entry img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
+}
+
+#filters{
+  overflow-x: auto;
+  padding: 2px;
 }
