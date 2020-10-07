@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap');
+
 /* Prevents breaking of timeline when timeline navigation occurs */
 :root {
   --color-black-1: #000000;
@@ -8,6 +10,7 @@
   --color-grey-1: #eeeeee;
   --color-grey-2: #d1d1d1;
   --color-grey-3: #d1d1d1;
+  --theme-font: 'Noto Sans JP', sans-serif;
 }
 
 *,
@@ -37,12 +40,15 @@ simpleTimeline .timeline
 
 simpleTimeline .timeline::-webkit-scrollbar, simpleTimeline .year::-webkit-scrollbar, #filters::-webkit-scrollbar 
 {
-	display: none;
+  display: none;
+
 }
+
+
 
 simpleTimeline {
   max-width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--theme-font);
   font-size: 12px;
   display: block;
   flex-direction: column !important;
@@ -58,7 +64,7 @@ simpleTimeline {
   font-weight: bold;
   text-decoration: none;
   color: var(--color-black-1);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--theme-font);
   margin: 0 5px;
 }
 
@@ -108,7 +114,7 @@ simpleTimeline .topBar {
 }
 simpleTimeline .bottomBar {
   height: 10px;
-  background: var(-color-grey-1);
+  background: var(--color-grey-1);
   background-color: var(--color-red-1);
   width: 100%;
   position: relative;
@@ -171,7 +177,8 @@ simpleTimeline .year .yearTitle {
 }
 
 simpleTimeline .year .entry {
-  display: block;
+  display: grid;
+  grid-template-rows: 1fr;
   vertical-align: top;
   font-size: 12px;
   text-align: center;
@@ -192,7 +199,7 @@ simpleTimeline .year .entry h1 {
 }
 
 simpleTimeline .year .entry h2 {
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   margin-bottom: 10px;
   font-size: 14px;
   max-width: 100%;
@@ -209,21 +216,33 @@ simpleTimeline .year .entry img
 
 /* Adding style to the buttons */
 .years {
+  width: 100%;
   margin-top: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 10%;
+  height: 36px;
+  transition: height 2s;
+
 }
+
 .yearStyle 
 {
-	border: 2px solid var(--color-red-1);
+  border: 2px solid var(--color-red-1);
+  border-top: 0;
+  border-bottom: 0;
   border-radius: 6px;
   padding: 4px 15px;
-  margin-left: 0.25em;
+  margin-left: 0.3em;
+  margin-bottom: 0.3em;
+  font-family: var(--theme-font);
 }
 .yearStyle:hover {
   background-color: var(--color-red-1);
   color: var(--color-white-1);
 }
 simpleTimeline .year .entry .content {
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   margin-bottom: 10px;
   font-size: 14px;
   max-width: 100%;

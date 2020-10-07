@@ -150,6 +150,20 @@ class SimpleTimeline
 	}
 }
 
+function expand() {
+	let b = document.querySelector("button");
+
+	if(b.textContent == "Expand Years"){
+		b.textContent = "Collapse Years";
+		document.querySelector(".years").style.height = "auto";
+			}
+	else {
+		b.textContent = "Expand Years";
+		document.querySelector(".years").style.height = "36px";
+	}
+	return false;
+}
+
 //class clsSimpleTimelineData
 //{
 //	constructor()
