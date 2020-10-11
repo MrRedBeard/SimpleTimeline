@@ -22,6 +22,8 @@ class SimpleTimeline
 		this.data = options.data;
 		
 		this.containerEl = options.containerEl;
+		this.yearFilter;
+		this.yearFilterYears;
 		this.topBarEl;
 		this.bottomBarEl;
 		this.timelineEl;
@@ -37,7 +39,8 @@ class SimpleTimeline
 	buildTemplate()
 	{
 		let elm = document.createElement('div');
-		let elmStr = '<div class="topBar"></div>' + '\n';
+		let elmStr = '<div class="yearFilter"><div class="menuIcon"></div><div class="years"></div></div>' + '\n';
+		elmStr += '<div class="topBar"></div>' + '\n';
 		elmStr += '<div class="timeline">' + '\n';
 		elmStr += '  <div class="year">' + '\n';
 		elmStr += '    <h1 class="yearTitle">1990</h1>' + '\n';
@@ -52,6 +55,13 @@ class SimpleTimeline
 		elmStr += '</div>' + '\n';
 		elmStr += '<div class="bottomBar"></div>' + '\n';
 		elm.innerHTML = elmStr;
+		
+		this.yearFilter = document.createElement('div');
+		this.yearFilter.innerHTML = elm.querySelector('.yearFilter').outerHTML;
+		this.yearFilter = this.yearFilter.querySelector('.yearFilter');
+		this.yearFilterYears = this.yearFilter.querySelector('.years');
+		
+		this.yearFilter.querySelector(".menuIcon").onclick = () => this.expandYearFilter();
 
 		this.topBarEl = document.createElement('div');
 		this.topBarEl.innerHTML = elm.querySelector('.topBar').outerHTML;
@@ -75,6 +85,7 @@ class SimpleTimeline
 		this.entryTemplate.innerHTML = elm.querySelector('.entry').outerHTML;
 		this.entryTemplate = this.entryTemplate.querySelector('.entry');
 		
+		this.containerEl.appendChild(this.yearFilter);
 		this.containerEl.appendChild(this.topBarEl);
 		this.containerEl.appendChild(this.timelineEl);
 		this.containerEl.appendChild(this.bottomBarEl);
@@ -91,6 +102,14 @@ class SimpleTimeline
             }
 		}
 		years = years.sort();
+		
+		years.map(y=>
+		{
+			let el = document.createElement("a");
+			el.setAttribute("href",`#year${y}`);
+			el.innerHTML = y;
+			this.yearFilterYears.appendChild(el);
+		});
 
 		for (var i = 0; i < years.length; i++)
 		{
@@ -105,6 +124,24 @@ class SimpleTimeline
 			this.timelineEl.appendChild(yearContainer);
         }
 
+	}
+	
+	expandYearFilter()
+	{		
+		this.yearFilterYears.classList.contains('expanded')
+
+		if(!this.yearFilterYears.classList.contains('expanded'))
+		{
+			this.yearFilterYears.classList.add('expanded');
+			
+			this.yearFilter.querySelector(".menuIcon").classList.add('close');
+		}
+		else 
+		{
+			this.yearFilterYears.classList.remove('expanded');
+			
+			this.yearFilter.querySelector(".menuIcon").classList.remove('close');
+		}
 	}
 	
 	buildEntries()
@@ -155,20 +192,6 @@ class SimpleTimeline
 	}
 }
 
-function expand() 
-{
-	let b = document.querySelector("button");
-
-	if(b.textContent == "Expand Years"){
-		b.textContent = "Collapse Years";
-		document.querySelector(".years").style.height = "auto";
-			}
-	else {
-		b.textContent = "Expand Years";
-		document.querySelector(".years").style.height = "36px";
-	}
-	return false;
-}
 
 //class clsSimpleTimelineData
 //{

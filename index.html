@@ -6,10 +6,7 @@
 <script src="./SimpleTimeline.js"></script>
 </head>
 <body>
-	<button onClick="expand()">Expand Years</button>
-<div class="years" id="filters">
-</div>
-<br />
+
 <simpleTimeline class="timeline"></simpleTimeline>
 
 <script>
@@ -1675,15 +1672,7 @@
 		   }
 		]
 	};
-	let uniqueYears = [...new Set(timelineOptions.data.map(y=>y.year))];
-	uniqueYears.map(y=>{
-		let el = document.createElement("a");
-		el.setAttribute("class","yearStyle");
-		el.setAttribute("href",`#year${y}`);
-		el.innerHTML = y;
-		document.getElementById("filters").appendChild(el);
-	})
-	
+
 	let timeline = new SimpleTimeline(timelineOptions);
 </script>
 
