@@ -115,17 +115,22 @@ class SimpleTimeline
 		//<div class="content"></div>
 		//this.timelineEl.querySelector('.year').appendChild(this.entryTemplate);
 
-		this.data.sort(function (x, y) {
-			if (x.order !== null && y.order !== null) {
-				return x.order - y.order;
-			}
-
-			if (x.month !== null && y.month !== null) {
-				return x.month - y.month;
-			}
-
-			if (x.day !== null && y.day !== null) {
+		this.data.sort(function (x, y) 
+		{
+			//This is the sort issue need to refactor this later
+			//if (x.order !== null && y.order !== null) 
+			//{
+			//	return x.order - y.order;
+			//}
+			
+			if (x.day !== null && y.day !== null) 
+			{
 				return x.day - y.day;
+			}
+			
+			if (x.month !== null && y.month !== null) 
+			{
+				return x.month - y.month;
 			}
 		});
 
@@ -150,7 +155,8 @@ class SimpleTimeline
 	}
 }
 
-function expand() {
+function expand() 
+{
 	let b = document.querySelector("button");
 
 	if(b.textContent == "Expand Years"){
