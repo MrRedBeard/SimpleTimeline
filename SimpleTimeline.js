@@ -1,15 +1,3 @@
-
-
-//simpleTimeline .year 
-//Year loop through years then add blocks
-//Loop through year blocks to get months then add blocks to years
-
-
-//simpleTimeline
-//timeline
-//year (column)
-//entry (entries on column/year)
-
 class SimpleTimeline
 {
 	constructor(options)
@@ -21,12 +9,19 @@ class SimpleTimeline
 		
 		this.data = options.data;
 		
+		this.yearsArry = [];
+		this.currentYearPosition = 0; //Probably overkill on error prevention
+		
 		this.containerEl = options.containerEl;
-		this.yearFilter;
-		this.yearFilterYears;
+		this.yearFilterEl;
+		this.yearFilterYearsEl;
 		this.topBarEl;
 		this.bottomBarEl;
 		this.timelineEl;
+		
+		this.bottomBarNavBackEl;
+		this.bottomBarNavForwardEl;
+		
 		this.yearTemplate;
 		this.entryTemplate;
 		
@@ -34,6 +29,8 @@ class SimpleTimeline
 
 		this.buildYears();
 		this.buildEntries();
+		
+		this.createEvents();
 	}
 	
 	buildTemplate()
@@ -53,15 +50,13 @@ class SimpleTimeline
 		elmStr += '    </div>' + '\n';
 		elmStr += '  </div>' + '\n';
 		elmStr += '</div>' + '\n';
-		elmStr += '<div class="bottomBar"></div>' + '\n';
+		elmStr += '<div class="bottomBar"><div class="navButtons"><span class="back"></span><span class="forward"></span></div></div>' + '\n';
 		elm.innerHTML = elmStr;
 		
-		this.yearFilter = document.createElement('div');
-		this.yearFilter.innerHTML = elm.querySelector('.yearFilter').outerHTML;
-		this.yearFilter = this.yearFilter.querySelector('.yearFilter');
-		this.yearFilterYears = this.yearFilter.querySelector('.years');
-		
-		this.yearFilter.querySelector(".menuIcon").onclick = () => this.expandYearFilter();
+		this.yearFilterEl = document.createElement('div');
+		this.yearFilterEl.innerHTML = elm.querySelector('.yearFilter').outerHTML;
+		this.yearFilterEl = this.yearFilterEl.querySelector('.yearFilter');
+		this.yearFilterYearsEl = this.yearFilterEl.querySelector('.years');
 
 		this.topBarEl = document.createElement('div');
 		this.topBarEl.innerHTML = elm.querySelector('.topBar').outerHTML;
@@ -71,6 +66,9 @@ class SimpleTimeline
 		this.bottomBarEl.innerHTML = elm.querySelector('.bottomBar').outerHTML;
 		this.bottomBarEl = this.bottomBarEl.querySelector('.bottomBar');
 		
+		this.bottomBarNavBackEl = this.bottomBarEl.querySelector('.back');
+		this.bottomBarNavForwardEl = this.bottomBarEl.querySelector('.forward');
+
 		this.timelineEl = document.createElement('div');
 		this.timelineEl.innerHTML = elm.querySelector('.timeline').outerHTML;
 		this.timelineEl = this.timelineEl.querySelector('.timeline');
@@ -85,63 +83,86 @@ class SimpleTimeline
 		this.entryTemplate.innerHTML = elm.querySelector('.entry').outerHTML;
 		this.entryTemplate = this.entryTemplate.querySelector('.entry');
 		
-		this.containerEl.appendChild(this.yearFilter);
+		this.containerEl.appendChild(this.yearFilterEl);
 		this.containerEl.appendChild(this.topBarEl);
 		this.containerEl.appendChild(this.timelineEl);
 		this.containerEl.appendChild(this.bottomBarEl);
 	}
 	
+	createEvents()
+	{
+		this.yearFilterEl.querySelector(".menuIcon").onclick = () => this.expandYearFilter();
+		this.bottomBarNavBackEl.onclick = () => 
+			{
+				let currentYear = window.location.href;
+		
+				if(currentYear.includes('#'))
+				{
+					currentYear = parseInt(currentYear.split('#')[1].replace('year', ''));					
+					this.currentYearPosition = this.yearsArry.indexOf(currentYear);
+				}				
+				
+				let x = this.yearsArry.length - 1;
+				if(this.currentYearPosition - 3 >= 0)
+				{
+					x = this.currentYearPosition - 3
+				}
+				
+				this.goto(x);
+			};
+		this.bottomBarNavForwardEl.onclick = () => 
+			{ 
+				let currentYear = window.location.href;
+			
+				if(currentYear.includes('#'))
+				{
+					currentYear = parseInt(currentYear.split('#')[1].replace('year', ''));					
+					this.currentYearPosition = this.yearsArry.indexOf(currentYear);
+				}
+				
+				let x = 0;
+				if(this.currentYearPosition + 3 <= this.yearsArry.length - 1)
+				{
+					x = this.currentYearPosition + 3
+				}
+				
+				this.goto(x);
+			};
+	}
+	
 	buildYears()
 	{
-		let years = [];
+		this.yearsArry = [];
 		for (var i = 0; i < this.data.length; i++)
 		{
-			if (!years.includes(this.data[i].year))
+			if (!this.yearsArry.includes(this.data[i].year))
             {
-				years.push(this.data[i].year); //Remove duplicate years
+				this.yearsArry.push(this.data[i].year); //Remove duplicate years
             }
 		}
-		years = years.sort();
+		this.yearsArry = this.yearsArry.sort();
 		
-		years.map(y=>
+		this.yearFilterYearsEl.innerHTML = '';
+		this.yearsArry.map(y=>
 		{
 			let el = document.createElement("a");
 			el.setAttribute("href",`#year${y}`);
 			el.innerHTML = y;
-			this.yearFilterYears.appendChild(el);
+			this.yearFilterYearsEl.appendChild(el);
 		});
 
-		for (var i = 0; i < years.length; i++)
+		for (var i = 0; i < this.yearsArry.length; i++)
 		{
 			let yearContainer = document.createElement('div');
 			yearContainer.innerHTML = this.yearTemplate.outerHTML;
 			yearContainer = yearContainer.querySelector('.year');
 			yearContainer.innerHTML = '<h1 class="yearTitle">1990</h1>';
-			yearContainer.querySelector('.yearTitle').innerHTML = 'Year ' + years[i];
-			yearContainer.classList.add('year' + years[i]);
-			yearContainer.id = 'year' + years[i];
+			yearContainer.querySelector('.yearTitle').innerHTML = 'Year ' + this.yearsArry[i];
+			yearContainer.classList.add('year' + this.yearsArry[i]);
+			yearContainer.id = 'year' + this.yearsArry[i];
 
 			this.timelineEl.appendChild(yearContainer);
         }
-
-	}
-	
-	expandYearFilter()
-	{		
-		this.yearFilterYears.classList.contains('expanded')
-
-		if(!this.yearFilterYears.classList.contains('expanded'))
-		{
-			this.yearFilterYears.classList.add('expanded');
-			
-			this.yearFilter.querySelector(".menuIcon").classList.add('close');
-		}
-		else 
-		{
-			this.yearFilterYears.classList.remove('expanded');
-			
-			this.yearFilter.querySelector(".menuIcon").classList.remove('close');
-		}
 	}
 	
 	buildEntries()
@@ -189,6 +210,41 @@ class SimpleTimeline
 
 			this.timelineEl.querySelector('.year' + this.data[i].year).appendChild(entry);
 		}
+	}
+	
+	expandYearFilter()
+	{		
+		this.yearFilterYearsEl.classList.contains('expanded')
+
+		if(!this.yearFilterYearsEl.classList.contains('expanded'))
+		{
+			this.yearFilterYearsEl.classList.add('expanded');
+			
+			this.yearFilterEl.querySelector(".menuIcon").classList.add('close');
+		}
+		else 
+		{
+			this.yearFilterYearsEl.classList.remove('expanded');
+			
+			this.yearFilterEl.querySelector(".menuIcon").classList.remove('close');
+		}
+	}
+	
+	goto(num)
+	{
+		//#year2152
+		let url = window.location.href;
+		
+		if(url.includes('#'))
+		{
+			url = url.split('#')[0];
+		}
+		
+		url = '#year' + this.yearsArry[num];
+		
+		this.currentYearPosition = num;
+		
+		window.location.href = url;
 	}
 }
 

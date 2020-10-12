@@ -92,8 +92,8 @@ simpleTimeline .timeline, simpleTimeline .year
 simpleTimeline .topBar 
 {
   height: 10px;
-  background: var(-color-grey-1);
-  background-color: var(--color-red-1);
+  /*background: var(-color-grey-1);
+  background-color: var(--color-red-1);*/
   width: 100%;
   position: relative;
   top: 15px;
@@ -102,8 +102,8 @@ simpleTimeline .topBar
 simpleTimeline .bottomBar 
 {
   height: 10px;
-  background: var(--color-grey-1);
-  background-color: var(--color-red-1);
+  /*background: var(--color-grey-1);
+  background-color: var(--color-red-1);*/
   width: 100%;
   position: relative;
   top: 15px;
@@ -115,14 +115,16 @@ simpleTimeline .year
 {
   display: inline-block;
   vertical-align: top;
-  padding: 10px;
+  /*padding: 0 10px 10px 10px;*/
+  padding: 0 0 10px 0px;
   margin-right: 20px;
   font-size: 12px;
   text-align: center;
   position: relative;
   border: 1px solid var(--color-grey-3);
-  border-top: 4px solid var(--color-black-2);
+  /*border-top: 4px solid var(--color-black-2);*/
   border-radius: 3px;
+  border-radius: 5px;
   overflow-y: auto;
   min-width: 200px;
   max-width: 500px;
@@ -163,10 +165,17 @@ simpleTimeline .year:before
 
 simpleTimeline .year .yearTitle 
 {
-  /*color: #fff;*/
+  height: 3em;
+  margin: 0 0 10px 0;
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px;
+  background-color: #354b65;
+  color: #fff;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 simpleTimeline .year .entry 
@@ -179,10 +188,12 @@ simpleTimeline .year .entry
   position: relative;
   border: 1px solid var(--color-grey-2);
   border-radius: 3px;
-  max-width: 100%;
-  width: 100%;
+  border-radius: 10px;
+  max-width: 98%;
+  width: 99%;
   margin-bottom: 10px;
   white-space: normal;
+  margin-left: auto; margin-right: auto;
 }
 
 simpleTimeline .year .entry h1 
@@ -281,9 +292,7 @@ simpleTimeline .yearFilter .menuIcon.close:before
   height: 1.8em;
   
   box-shadow: none;
-  
 }
-
 
 simpleTimeline .yearFilter .years
 {
@@ -323,18 +332,66 @@ simpleTimeline .yearFilter .years a
 	font-family: var(--theme-font);
 	margin: 0 5px;
 	
-	border: 2px solid var(--color-red-1);
+	border: 2px solid #354b65;
 	border-top: 0;
 	border-bottom: 0;
 	border-radius: 6px;
 	padding: 4px 15px;
 	margin-left: 0.3em;
 	margin-bottom: 0.3em;
- 
+}
+simpleTimeline .yearFilter .years a:visited, simpleTimeline .yearFilter .years a:link
+{
+	color: #000;
 }
 simpleTimeline .yearFilter .years a:hover 
 {
   background-color: var(--color-red-1);
   color: var(--color-white-1);
   transition: 0.2s all ease-in;
+  
+  background-color: #354b65;
+  color: #fff;
+}
+simpleTimeline .yearFilter .years a:active
+{
+	background-color: #354b65;
+	color: #fff;
+}
+
+simpleTimeline .bottomBar .navButtons
+{
+	display: flex;
+	justify-content: space-around;
+	margin-left: auto; margin-right: auto;
+}
+
+simpleTimeline .bottomBar .navButtons .back, simpleTimeline .bottomBar .navButtons .forward
+{
+	position: relative;
+	background-color: #354b65;
+	border-radius: 50%;
+	width: 4.5em;
+	height: 4.5em;
+	vertical-align: middle;
+}
+simpleTimeline .bottomBar .navButtons .back:before, simpleTimeline .bottomBar .navButtons .forward:before
+{
+	position: absolute;
+	color: #fff;
+	font-size: 4em;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-around;
+	top: -.18em;
+	left: .25em;
+	cursor: pointer;
+}
+simpleTimeline .bottomBar .navButtons .back:before 
+{
+	content: "<";
+}
+simpleTimeline .bottomBar .navButtons .forward:before 
+{
+	content: ">";
 }
